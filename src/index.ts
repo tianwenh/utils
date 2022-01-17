@@ -1,3 +1,2 @@
-export function test() {
-  return 1;
-}
+export * from './theme';
+export * from './string';
