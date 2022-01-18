@@ -1,6 +1,6 @@
 {
   "name": "@tianwenh/utils",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "List of util functions",
   "repository": {
     "type": "git",
@@ -11,22 +11,33 @@
     "url": "https://github.com/tianwenh/utils/issues"
   },
   "homepage": "https://github.com/tianwenh/utils#readme",
+  "type": "module",
   "main": "dist/index.js",
-  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*"
+      ]
+    }
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/*.js"
+  },
   "scripts": {
-    "prepublishOnly": "npm run build",
-    "build": "tsup src/index.ts --format cjs,esm --dts --clean",
+    "prepublishOnly": "npm run clean && npm run build",
+    "clean": "rm -rf ./dist",
+    "build": "tsc",
     "dev": "npm run build -- --watch",
     "lint": "eslint \"{src,test}/**/*.ts\""
   },
   "devDependencies": {
     "@tianwenh/eslint-config": "^0.1.1",
     "eslint": "^8.7.0",
-    "tsup": "^5.11.11",
     "typescript": "^4.5.4"
   }
 }

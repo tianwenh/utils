@@ -1,2 +1,2 @@
-export * from './theme';
-export * from './string';
+export * as theme from './theme';
+export * as string from './string';
