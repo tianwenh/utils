@@ -1,6 +1,6 @@
 {
   "name": "@tianwenh/utils",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "description": "List of util functions",
   "repository": {
     "type": "git",
@@ -29,9 +29,9 @@
     "./*": "./dist/*.js"
   },
   "scripts": {
-    "prepublishOnly": "npm run clean && npm run build",
+    "prepublishOnly": "npm run build",
     "clean": "rm -rf ./dist",
-    "build": "tsc",
+    "build": "tsup",
     "dev": "npm run build -- --watch",
     "lint": "eslint \"{src,test}/**/*.ts\""
   },
@@ -42,7 +42,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.2.1",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.4",
+    "tsup": "^5.11.11"
   },
   "peerDependencies": {
     "react": "^17.0.2",
