@@ -1,3 +1,4 @@
+/** Pick subset of an object by keys. */
 export function pick<T extends object, K extends keyof T>(
   obj: T,
   ...keys: K[]
