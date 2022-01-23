@@ -1,6 +1,6 @@
 {
   "name": "@tianwenh/utils",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "description": "List of util functions",
   "repository": {
     "type": "git",
@@ -12,8 +12,7 @@
   },
   "homepage": "https://github.com/tianwenh/utils#readme",
   "type": "module",
-  "main": "dist/cjs/index.js",
-  "module": "dist/index.js",
+  "main": "dist/index.js",
   "types": "index.d.ts",
   "files": [
     "dist"
@@ -26,23 +25,13 @@
     }
   },
   "exports": {
-    ".": {
-      "require": "./dist/cjs/index.js",
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    },
-    "./*": {
-      "require": "./dist/cjs/*.js",
-      "import": "./dist/*.js",
-      "types": "./dist/*.d.ts"
-    }
+    ".": "./dist/index.js",
+    "./*": "./dist/*.js"
   },
   "scripts": {
     "prepublishOnly": "npm run clean && npm run build",
     "clean": "rm -rf ./dist",
-    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
-    "build:esm": "tsc",
-    "build": "npm run build:cjs && npm run build:esm",
+    "build": "tsc",
     "dev": "npm run build -- --watch",
     "lint": "eslint \"{src,test}/**/*.ts\""
   },
