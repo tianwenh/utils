@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, HTMLAttributes } from 'react';
 import { getTheme, setTheme } from '../theme';
 
 function getIsDark(): boolean {
@@ -8,7 +8,9 @@ function getIsDark(): boolean {
   }
   return getTheme() === 'dark';
 }
-export const DarkModeToggle: React.FC<{ className: string }> = () => {
+export const DarkModeToggle: React.FC<HTMLAttributes<HTMLElement>> = (
+  props
+) => {
   const themeName = (isDark: boolean) => (isDark ? 'dark' : 'light');
 
   const [isDark, setIsDark] = useState(getIsDark());
@@ -16,5 +18,9 @@ export const DarkModeToggle: React.FC<{ className: string }> = () => {
     setTheme(themeName(isDark));
   }, [isDark]);
 
-  return <span onClick={() => setIsDark(!isDark)}>{isDark ? '🌘' : '🌔'}</span>;
+  return (
+    <span {...props} onClick={() => setIsDark(!isDark)}>
+      {isDark ? '🌘' : '🌔'}
+    </span>
+  );
 };
