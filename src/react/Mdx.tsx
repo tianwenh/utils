@@ -12,5 +12,5 @@ export const MdxLink: React.FC<{ href: string; title: string }> = (props) => {
   if (dropExtension.startsWith('#')) {
     return <a {...props} />;
   }
-  return <Link {...props} to={dropExtension}></Link>;
+  return <Link {...props} to={`/${dropExtension}`}></Link>;
 };
